@@ -7,4 +7,18 @@ public class ThreadedReverseGreeting {
 	// Each thread should print "Hello from Thread <num>!",
 	// but you should structure your program such that the threads print their
 	// greetings in reverse order.
+	static int i = 50;
+	public static void main(String[] args) {
+		while(i > 0) {
+		new Thread(() -> sayNum()).start();
+		System.out.println("Hello from thread " + i + "!");
+		i--;
+		if(i <= 0) {
+			System.exit(0);
+		}
+		}
+	}
+	public static void sayNum() {
+		
+	}
 }
