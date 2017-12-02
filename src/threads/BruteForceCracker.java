@@ -18,6 +18,7 @@ public class BruteForceCracker {
 	static float elapsedTime;
 
 	public static void main(String[] args) {
+		code = 000010000;
 		System.out.println("Starting Brute Force Checker");
 		startTime = System.currentTimeMillis();
 
