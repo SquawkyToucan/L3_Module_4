@@ -10,13 +10,21 @@ public class OlympicRings_Threaded {
 	/*
 	 * BLUE BLACK RED YELLOW GREEN
 	 */
-	public static void main(String[] args) {
-		Robot blue = new Robot(100, 100, "vic");
-		Robot black = new Robot(200, 100, "june");
-		Robot red = new Robot(300, 100, "batman");
-		Robot yellow = new Robot(150, 200, "mini");
-		Robot green = new Robot(250, 200);
+	static Robot blue = new Robot(100, 100, "vic");
+	static Robot black = new Robot(200, 100, "june");
+	static Robot red = new Robot(300, 100, "batman");
+	static Robot yellow = new Robot(150, 200, "mini");
+	static Robot green = new Robot(250, 200);
 
+	public static void main(String[] args) {
+		new Thread(() -> makeBlue()).start();
+		new Thread(() -> makeBlack()).start();
+		new Thread(() -> makeRed()).start();
+		new Thread(() -> makeYellow()).start();
+		new Thread(() -> makeGreen()).start();
+	}
+
+	public static void makeBlue() {
 		// Blue
 		blue.setPenColor(new Color(0, 0, 255));
 		blue.setSpeed(10);
@@ -29,7 +37,10 @@ public class OlympicRings_Threaded {
 			b++;
 		}
 		blue.penUp();
+		blue.hide();
+	}
 
+	public static void makeBlack() {
 		// Black
 		black.setPenColor(new Color(0, 0, 0));
 		black.setSpeed(10);
@@ -42,7 +53,10 @@ public class OlympicRings_Threaded {
 			bl++;
 		}
 		black.penUp();
+		black.hide();
+	}
 
+	public static void makeRed() {
 		// Red
 		red.setPenColor(new Color(255, 0, 0));
 		red.setSpeed(10);
@@ -55,7 +69,10 @@ public class OlympicRings_Threaded {
 			r++;
 		}
 		red.penUp();
+		red.hide();
+	}
 
+	public static void makeYellow() {
 		// Yellow
 		yellow.setPenColor(new Color(255, 255, 0));
 		yellow.setSpeed(10);
@@ -68,9 +85,12 @@ public class OlympicRings_Threaded {
 			y++;
 		}
 		yellow.penUp();
+		yellow.hide();
+	}
 
+	public static void makeGreen() {
 		// Green
-		green.setPenColor(new Color(0, 255, 72));
+		green.setPenColor(new Color(0, 153, 85));
 		green.setSpeed(10);
 		green.setPenWidth(10);
 		green.penDown();
@@ -81,11 +101,6 @@ public class OlympicRings_Threaded {
 			g++;
 		}
 		green.penUp();
-
-		new Thread(() -> blue.move(-300)).start();
-		new Thread(() -> black.move(-300)).start();
-		new Thread(() -> red.move(-300)).start();
-		new Thread(() -> yellow.move(-300)).start();
-		new Thread(() -> green.move(-300)).start();
+		green.hide();
 	}
 }
