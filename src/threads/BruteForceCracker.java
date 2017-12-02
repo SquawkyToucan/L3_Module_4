@@ -12,7 +12,6 @@ import java.util.Random;
 
 public class BruteForceCracker {
 	static long code = (long) (new Random().nextDouble() * 1_000_000_000);
-
 	static long startTime;
 	static long endTime;
 	static float elapsedTime;
